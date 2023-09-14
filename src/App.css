@@ -1,0 +1,43 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+body{background-color: rgb(0, 191, 255);}
+
+.container{
+  width:800px;
+  height:800px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 15px;
+  padding:10px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.todo-form{
+  border-color: 1px solid cyan;
+  width:max-content;
+  height:max-content;
+  color: black;
+  font-weight: 800;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding:25px;
+  gap:10px;
+}
+
+.todo-form input[type="text"]{
+  padding:4px;
+}
+
+.input-container{
+  display: flex;
+  padding:5px;
+  gap:10px;
+  width: max-content;
+  margin:0 auto;
+}
