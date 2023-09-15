@@ -6,8 +6,8 @@
 body{background-color: rgb(0, 191, 255);}
 
 .container{
-  width:800px;
-  height:800px;
+  width: 800px;
+  height: 800px;
   background-color: white;
   border: 2px solid black;
   border-radius: 15px;
@@ -15,19 +15,23 @@ body{background-color: rgb(0, 191, 255);}
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .todo-form{
-  border-color: 1px solid cyan;
-  width:max-content;
-  height:max-content;
+  width: 800px;
+  max-height: max-content;
+  height: 800px;
   color: black;
   font-weight: 800;
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
   padding:25px;
-  gap:10px;
+  gap: 5px;
 }
 
 .todo-form input[type="text"]{
@@ -36,8 +40,41 @@ body{background-color: rgb(0, 191, 255);}
 
 .input-container{
   display: flex;
-  padding:5px;
   gap:10px;
   width: max-content;
   margin:0 auto;
+}
+
+ul{
+  width: 100%;
+  list-style-type: disc;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.list-item {
+  width:100%;
+  display: flex;
+  align-items: center;
+  padding:5px;
+  margin:5px;
+  gap:5px;
+}
+
+.list-item input[type="checkbox"]{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:50px;
+  width:20px;
+  margin-top: 6px;
+}
+
+.del-btn{
+  width:80px;
+  height:30px;
+  background-color: red;
+  color:white;
 }
