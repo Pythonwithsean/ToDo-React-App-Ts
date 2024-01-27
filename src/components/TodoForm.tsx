@@ -10,6 +10,7 @@ function TodoForm() {
 
   const [value, setValue] = useState("");
   const [todos, setTodos] = useState<Todo[]>([]);
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (value !== "") {
@@ -25,6 +26,23 @@ function TodoForm() {
 
     setValue("");
   };
+
+  useEffect(() => {
+    loadTodos();
+  }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      localStorage.setItem("todos", JSON.stringify(todos));
+    }, 3);
+  }, [todos]);
+
+  function loadTodos() {
+    const savedtodos = localStorage.getItem("todos");
+    if (savedtodos !== null) {
+      setTodos(JSON.parse(savedtodos));
+    }
+  }
 
   const toggleID = (id: string) => {
     setTodos(
@@ -54,6 +72,7 @@ function TodoForm() {
             setValue(e.target.value);
           }}
         />
+
         <button
           type="submit"
           onClick={(e: FormEvent<HTMLFormElement>) => handleSubmit(e)}
@@ -74,7 +93,7 @@ function TodoForm() {
                   type="checkbox"
                   checked={todo.completed}
                   name="Checked"
-                  onClick={() => toggleID(todo.id)}
+                  onChange={() => toggleID(todo.id)}
                 />{" "}
                 <button type="button" onClick={() => removeTodo(todo.id)}>
                   {" "}
